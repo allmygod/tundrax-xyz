@@ -10,11 +10,16 @@ exports.CatsModule = void 0;
 const common_1 = require("@nestjs/common");
 const cats_controller_1 = require("./cats.controller");
 const cats_service_1 = require("./cats.service");
+const typeorm_1 = require("@nestjs/typeorm");
+const cat_entity_1 = require("./cat.entity");
 let CatsModule = class CatsModule {
 };
 exports.CatsModule = CatsModule;
 exports.CatsModule = CatsModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([cat_entity_1.Cat]),
+        ],
         controllers: [cats_controller_1.CatsController],
         providers: [cats_service_1.CatsService],
     })
